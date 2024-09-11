@@ -39,6 +39,7 @@
 .container ul {
 	list-style: none;
 }
+
 .container ul::after {
 	content: " ";
 	position: absolute;
@@ -59,6 +60,20 @@
 	position: relative;
 	margin-bottom: 30px;
 	z-index: 99;
+	
+	animation: reveal linear both;
+	animation-timeline: view();
+	animation-range: entry 20% cover 30%;
+}
+@keyframes reveal{
+    from{
+		scale: .5;
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+		scale: 1;
+    }
 }
 .container ul li:nth-child(4) {
 	margin-bottom: 0;

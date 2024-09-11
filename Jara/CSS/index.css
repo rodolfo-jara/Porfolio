@@ -14,12 +14,24 @@ body {
     padding: 10px 20px;
     background: linear-gradient(90deg, #1e235d 0%, #230f36 30%, #310f47 60%, #731a73 100%);
     color: #FFFFFF;
-    position: fixed;
+    position: sticky;
     top: 0;
     left: 0;
     width: 100%; /* Usar 100% para asegurar que ocupe todo el ancho del viewport */
     z-index: 1000;
     box-sizing: border-box;
+
+
+    animation: enhance-header linear both;
+    animation-timeline: scroll(root );
+    animation-range: 0 200px;
+}
+
+@keyframes enhance-header{
+    to{
+        background: rgba(255, 255, 255, .05);
+        backdrop-filter: blur(50px);
+    }
 }
 
 /* Contenedor principal para el contenido */
@@ -225,10 +237,15 @@ section {
     cursor: pointer;
     font-size: 1em;
     transition: background-color 0.3s ease;
+    transition-duration: 2s;
+    transition-property: background, scale;
+    transition-timing-function: ease-in-out;
 }
 
 .order button:hover {
-    background-color: #1e235d;
+    background: purple;
+    scale: 1.1;
+    box-shadow: 0 0 10px purple;
 }
 
 /* Image styles */
@@ -244,6 +261,16 @@ section {
     max-width: 100%;
     height: auto;
     border-radius: 10px;
+    animation: move;
+    animation-duration: 3s;
+}
+@keyframes move {
+    from{
+        transform: translateY(100px);
+    }
+    to {
+        transform: translateY(0px);
+    }
 }
 
 /* Responsive styles */
@@ -312,6 +339,7 @@ section {
         transform: translateX(calc(-200px * 7));
     }
 }
+
 
 
 
